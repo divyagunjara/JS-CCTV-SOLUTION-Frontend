@@ -1,0 +1,588 @@
+.packages {
+  background: #f8f9fb;
+  padding: 105px 0 115px;
+}
+
+.packages-container {
+  width: calc(100% - 128px);
+  max-width: 1536px;
+  margin: 0 auto;
+}
+
+.packages-heading {
+  text-align: center;
+  margin-bottom: 52px;
+}
+
+.packages-eyebrow {
+  margin-bottom: 18px;
+
+  color: #2864e8;
+
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2.8px;
+}
+
+.packages-heading h2 {
+  margin: 0;
+
+  color: #151515;
+
+  font-family: 'Space Grotesk', sans-serif;
+
+  font-size: clamp(46px, 4vw, 62px);
+  line-height: 1;
+  letter-spacing: -3px;
+  font-weight: 600;
+}
+
+.packages-heading p {
+  margin: 25px 0 0;
+
+  color: #697386;
+
+  font-size: 16px;
+}
+
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.package-card {
+  position: relative;
+
+  min-height: 470px;
+
+  padding: 55px 30px 30px;
+
+  display: flex;
+  flex-direction: column;
+
+  border: 1px solid #e0e2e5;
+  border-radius: 14px;
+
+  background: #ffffff;
+}
+
+.package-card.popular {
+  border-color: #2864e8;
+}
+
+.popular-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  padding: 8px 13px;
+
+  background: #2864e8;
+  color: #ffffff;
+
+  border-radius: 20px;
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+}
+
+.package-top h3 {
+  margin: 0;
+
+  color: #171717;
+
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.camera-count {
+  margin-top: 30px;
+
+  color: #171717;
+
+  font-family: 'Space Grotesk', sans-serif;
+
+  font-size: 36px;
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: -1px;
+}
+
+.quote-text {
+  margin-top: 12px;
+
+  color: #2864e8;
+
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.package-top p {
+  margin: 20px 0 0;
+
+  color: #697386;
+
+  font-size: 14px;
+}
+
+.package-card ul {
+  margin: 24px 0 30px;
+  padding: 0;
+
+  list-style: none;
+}
+
+.package-card li {
+  position: relative;
+
+  margin-bottom: 10px;
+  padding-left: 18px;
+
+  color: #515c6d;
+
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.package-card li::before {
+  content: '✓';
+
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  color: #596270;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.package-button {
+  width: 100%;
+  height: 51px;
+
+  margin-top: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 5px;
+
+  background: #111111;
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 800;
+
+  text-decoration: none;
+
+  transition: 0.2s ease;
+}
+
+.package-button:hover {
+  background: #2864e8;
+}
+
+.package-button.red {
+  background: #2864e8;
+}
+
+.package-button.red:hover {
+  background: #2864e8;
+}
+
+@media (max-width: 1000px) {
+  .packages-container {
+    width: calc(100% - 70px);
+  }
+
+  .packages-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .package-card {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .packages {
+    padding: 75px 0 85px;
+  }
+
+  .packages-container {
+    width: calc(100% - 40px);
+  }
+
+  .packages-heading h2 {
+    font-size: 43px;
+    letter-spacing: -2px;
+  }
+
+  .packages-heading p {
+    line-height: 1.6;
+  }
+
+  .package-card {
+    padding: 50px 24px 24px;
+  }
+}
+/* =========================================
+   PRICING GRID - 4 EQUAL CARDS
+========================================= */
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+
+/* =========================================
+   AMC CARD
+========================================= */
+
+.amc-card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  box-sizing: border-box;
+
+  min-width: 0;
+  height: 100%;
+
+  padding: 24px 20px;
+
+  background: #ffffff;
+
+  border: 1px solid #dfe3ea;
+  border-radius: 16px;
+
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.05);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.amc-card:hover {
+  transform: translateY(-4px);
+
+  border-color: #22a447;
+
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.09);
+}
+
+
+/* =========================================
+   AMC BADGE
+========================================= */
+
+.amc-top {
+  display: flex;
+  justify-content: center;
+
+  margin-bottom: 12px;
+}
+
+.amc-badge {
+  display: inline-flex;
+
+  padding: 5px 10px;
+
+  border-radius: 999px;
+
+  background: #eaf8ee;
+  color: #218c3a;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 0.3px;
+}
+
+
+/* =========================================
+   AMC TITLE
+========================================= */
+
+.amc-card h3 {
+  margin: 0;
+
+  text-align: center;
+
+  color: #111827;
+
+  font-size: 20px;
+  line-height: 1.25;
+
+  font-weight: 700;
+}
+
+.amc-minimum {
+  margin: 10px 0 14px;
+
+  text-align: center;
+
+  color: #64748b;
+
+  font-size: 13px;
+}
+
+.amc-minimum strong {
+  color: #111827;
+}
+
+
+/* =========================================
+   PRICE BOX
+========================================= */
+
+.amc-price-box {
+  overflow: hidden;
+
+  margin-bottom: 14px;
+
+  border: 1px solid #d8ead9;
+  border-radius: 10px;
+
+  background: #f8fcf8;
+}
+
+.amc-price-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.amc-price-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 76px;
+
+  padding: 10px 6px;
+
+  text-align: center;
+}
+
+.amc-price-item + .amc-price-item {
+  border-left: 1px solid #d8ead9;
+}
+
+.amc-price-item span {
+  margin-bottom: 4px;
+
+  color: #64748b;
+
+  font-size: 11px;
+}
+
+.amc-price-item del {
+  color: #64748b;
+
+  font-size: 17px;
+}
+
+.amc-price-item strong {
+  color: #26963e;
+
+  font-size: 25px;
+  line-height: 1.1;
+}
+
+.amc-price-item small {
+  margin-top: 2px;
+
+  color: #64748b;
+
+  font-size: 9px;
+}
+
+.amc-price-item.offer {
+  background: #f5fbf5;
+}
+
+
+/* =========================================
+   SAVING STRIP
+========================================= */
+
+.amc-saving {
+  grid-column: 1 / -1;
+
+  padding: 7px 5px;
+
+  border-top: 1px solid #d8ead9;
+
+  color: #218c3a;
+
+  text-align: center;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+
+/* =========================================
+   SERVICE BOX
+========================================= */
+
+.amc-service-box {
+  padding: 12px;
+
+  margin-bottom: 10px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+
+  background: #ffffff;
+}
+
+.amc-service-box h4,
+.amc-free-box h4 {
+  margin: 0 0 8px;
+
+  color: #111827;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.amc-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  column-gap: 12px;
+  row-gap: 7px;
+}
+
+.amc-features div {
+  color: #475569;
+
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.amc-features div::first-letter {
+  color: #26963e;
+}
+
+
+/* =========================================
+   FREE AMC BOX
+========================================= */
+
+.amc-free-box {
+  padding: 11px 12px;
+
+  margin-bottom: 10px;
+
+  border: 1px solid #eadfba;
+  border-radius: 10px;
+
+  background: #fffdf5;
+}
+
+.amc-free-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 6px;
+}
+
+.amc-free-features div {
+  color: #475569;
+
+  font-size: 11px;
+}
+
+
+/* =========================================
+   BOTTOM TEXT
+========================================= */
+
+.amc-bottom-text {
+  margin: 6px 0 14px;
+
+  color: #64748b;
+
+  text-align: center;
+
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+
+/* =========================================
+   INTERESTED BUTTON
+========================================= */
+
+.amc-interest-btn {
+  width: 100%;
+
+  min-height: 44px;
+
+  margin-top: auto;
+
+  border: none;
+  border-radius: 6px;
+
+  background: #26963e;
+
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.amc-interest-btn {
+  width: 100%;
+  min-height: 44px;
+
+  margin-top: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  border: none;
+  border-radius: 6px;
+
+  background: #26963e;
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.amc-interest-btn:hover {
+  background: #1f7f34;
+  color: #ffffff;
+
+  transform: translateY(-1px);
+}

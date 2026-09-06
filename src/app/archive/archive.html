@@ -1,0 +1,211 @@
+<section class="archive" id="archive">
+
+  <div class="archive-container">
+
+    <!-- ARCHIVE HEADER -->
+    <div class="archive-header">
+
+      <div class="archive-title">
+
+        <div class="eyebrow">
+          <span></span>
+          ARCHIVE / 2026
+        </div>
+
+        <h2>Monthly work gallery.</h2>
+
+      </div>
+
+      <!-- MONTH FILTERS -->
+      <div class="archive-filters">
+
+        <button
+          *ngFor="let month of months"
+          [class.active]="selectedMonth === month"
+          (click)="selectMonth(month)"
+        >
+          {{ month }}
+        </button>
+
+      </div>
+
+    </div>
+
+    <div class="archive-divider"></div>
+
+
+    <!-- PROJECT LIST -->
+    <ng-container *ngIf="!selectedProject">
+
+      <div class="archive-meta">
+        <span>
+          2026 /
+          {{ selectedMonth === 'All' ? 'All completed work' : selectedMonth + ' completed work' }}
+        </span>
+
+        <span>
+          {{ filteredProjects.length }}
+          {{ filteredProjects.length === 1 ? 'project' : 'projects' }}
+        </span>
+      </div>
+
+
+      <div class="archive-list">
+
+        <div
+          class="archive-project"
+          *ngFor="let project of filteredProjects"
+          (click)="openProject(project)"
+        >
+
+          <div>
+
+            <h3>
+              {{ project.title }}
+            </h3>
+
+            <p>
+              {{ project.location }}
+              ·
+              {{ project.category }}
+              ·
+              {{ project.month }}
+              {{ project.year }}
+            </p>
+
+          </div>
+
+          <span class="archive-arrow">
+            ›
+          </span>
+
+        </div>
+
+      </div>
+
+    </ng-container>
+
+
+    <!-- PROJECT DETAILS -->
+    <div
+      class="archive-details"
+      *ngIf="selectedProject"
+    >
+
+      <button
+        class="archive-back"
+        (click)="closeProject()"
+      >
+        ← Back to gallery
+      </button>
+
+
+      <div class="archive-details-header">
+
+        <div>
+
+          <div class="archive-project-label">
+            {{ selectedProject.month }} / {{ selectedProject.year }}
+          </div>
+
+          <h2>
+            {{ selectedProject.title }}
+          </h2>
+
+          <p>
+            {{ selectedProject.location }}
+            ·
+            {{ selectedProject.category }}
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- PROJECT IMAGES -->
+      <div class="archive-gallery">
+
+        <div
+          class="archive-gallery-image"
+          *ngFor="let image of selectedProject.images"
+        >
+
+          <img
+            [src]="image"
+            [alt]="selectedProject.title"
+          />
+
+        </div>
+
+      </div>
+
+
+      <!-- PROJECT INFORMATION -->
+      <div class="archive-project-content">
+
+        <div class="archive-project-description">
+
+          <div class="eyebrow">
+            <span></span>
+            PROJECT DETAILS
+          </div>
+
+          <h3>
+            Professional work. Properly executed.
+          </h3>
+
+          <p>
+            {{ selectedProject.description }}
+          </p>
+
+        </div>
+
+
+        <div class="archive-project-specs">
+
+          <div>
+            <span>CAMERA SYSTEM</span>
+            <strong>
+              {{ selectedProject.details.cameras }}
+            </strong>
+          </div>
+
+          <div>
+            <span>INSTALLATION</span>
+            <strong>
+              {{ selectedProject.details.installation }}
+            </strong>
+          </div>
+
+          <div>
+            <span>SYSTEM</span>
+            <strong>
+              {{ selectedProject.details.system }}
+            </strong>
+          </div>
+
+          <div>
+            <span>WORK COMPLETED</span>
+            <strong>
+              {{ selectedProject.details.work }}
+            </strong>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <button
+        class="archive-back bottom-back"
+        (click)="closeProject()"
+      >
+        ← Back to monthly gallery
+      </button>
+
+    </div>
+
+  </div>
+
+</section>

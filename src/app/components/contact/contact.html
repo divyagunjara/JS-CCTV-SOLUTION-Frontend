@@ -1,0 +1,302 @@
+<section class="contact" id="contact">
+
+  <div class="contact-container">
+
+    <div class="contact-left">
+
+      <div class="eyebrow">
+        <span></span>
+        GET IN TOUCH
+      </div>
+
+      <h2>
+        Let's secure
+        <br />
+        <strong>your property.</strong>
+      </h2>
+
+      <p>
+        Tell us what you need. We'll understand your requirements,
+        recommend the right solution and arrange a site visit if required.
+      </p>
+
+      <div class="contact-details">
+
+        <!-- CALL -->
+        <a href="tel:+919019954780" class="contact-detail">
+          <div class="detail-icon">☎</div>
+
+          <div>
+            <span>CALL US</span>
+            <strong>9019954780</strong>
+          </div>
+        </a>
+
+
+        <!-- WHATSAPP -->
+        <a
+          href="https://wa.me/919019954780"
+          target="_blank"
+          rel="noopener"
+          class="contact-detail"
+        >
+          <div class="detail-icon">◉</div>
+
+          <div>
+            <span>WHATSAPP</span>
+            <strong>Chat with us</strong>
+          </div>
+        </a>
+
+
+        <!-- SERVICE AREA -->
+        <div class="contact-detail">
+
+          <div class="detail-icon">⌖</div>
+
+          <div>
+            <span>SERVICE AREA</span>
+            <strong>Bangalore &amp; surrounding areas</strong>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- =========================
+         CONTACT FORM
+    ========================== -->
+
+    <div class="contact-form-card">
+
+      <div class="form-heading">
+
+        <span>FREE CONSULTATION</span>
+
+        <h3>Request a quote.</h3>
+
+        <p>
+          Fill in your details and we'll get back to you.
+        </p>
+
+      </div>
+
+
+      <!-- FORM -->
+
+      <form
+        (ngSubmit)="submitEnquiry()"
+        #enquiryForm="ngForm"
+      >
+
+        <!-- NAME + PHONE -->
+
+        <div class="form-row">
+
+          <div class="form-group">
+
+            <label for="name">
+              YOUR NAME
+            </label>
+
+            <input
+              id="name"
+              name="name"
+              type="text"
+              placeholder="Enter your name"
+              [(ngModel)]="name"
+              required
+            />
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="phone">
+              PHONE NUMBER
+            </label>
+
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              placeholder="Enter your phone number"
+              [(ngModel)]="phone"
+              required
+            />
+
+          </div>
+
+        </div>
+
+
+        <!-- EMAIL -->
+
+        <div class="form-group">
+
+          <label for="email">
+            EMAIL ADDRESS
+          </label>
+
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="Enter your email"
+            [(ngModel)]="email"
+            required
+          />
+
+        </div>
+
+
+        <!-- PROPERTY TYPE -->
+
+        <div class="form-group">
+
+          <label for="propertyType">
+            PROPERTY TYPE
+          </label>
+
+          <select
+            id="propertyType"
+            name="propertyType"
+            [(ngModel)]="propertyType"
+            required
+          >
+
+            <option value="">
+              Select property type
+            </option>
+
+            <option value="Residential">
+              Residential
+            </option>
+
+            <option value="Commercial">
+              Commercial
+            </option>
+
+            <option value="Office">
+              Office
+            </option>
+
+            <option value="Shop">
+              Shop
+            </option>
+
+            <option value="Other">
+              Other
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <!-- SERVICE -->
+
+        <div class="form-group">
+
+          <label for="service">
+            WHAT DO YOU NEED?
+          </label>
+
+          <select
+            id="service"
+            name="service"
+            [(ngModel)]="service"
+            required
+          >
+
+            <option value="">
+              Select a service
+            </option>
+
+            <option value="CCTV Installation">
+              CCTV Installation
+            </option>
+
+            <option value="Residential CCTV">
+              Residential CCTV
+            </option>
+
+            <option value="Commercial CCTV">
+              Commercial CCTV
+            </option>
+
+            <option value="CCTV AMC & Service">
+              CCTV AMC &amp; Service
+            </option>
+
+            <option value="Networking & Cabling">
+              Networking &amp; Cabling
+            </option>
+
+            <option value="DVR / NVR Service">
+              DVR / NVR Service
+            </option>
+
+            <option value="Remote Monitoring">
+              Remote Monitoring
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <!-- MESSAGE -->
+
+        <div class="form-group">
+
+          <label for="message">
+            MESSAGE
+          </label>
+
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+            placeholder="Tell us about your requirement..."
+            [(ngModel)]="message"
+            required
+          ></textarea>
+
+        </div>
+
+
+        <!-- SUBMIT BUTTON -->
+
+        <button
+          type="submit"
+          class="submit-button"
+          [disabled]="isSubmitting"
+        >
+
+          {{ isSubmitting ? 'Sending...' : 'Send Enquiry' }}
+
+          <span *ngIf="!isSubmitting">
+            →
+          </span>
+
+        </button>
+
+
+        <!-- FORM NOTE -->
+
+        <small class="form-note">
+          We'll never share your information with third parties.
+        </small>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</section>
