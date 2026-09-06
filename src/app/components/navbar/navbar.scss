@@ -18,6 +18,7 @@
   justify-content: space-between;
 }
 
+
 /* =========================
    LOGO
 ========================= */
@@ -27,28 +28,27 @@
   align-items: center;
   justify-content: flex-start;
 
-  width: 170px;
-  height: 70px;
+  width: 205px;
+  height: 76px;
 
   overflow: hidden;
-
   text-decoration: none;
   flex-shrink: 0;
 }
 
 .logo-image {
-  width: 165px;
+  width: 198px;
   height: auto;
+  max-height: 68px;
 
   display: block;
-
   object-fit: contain;
-
   flex-shrink: 0;
 
   /* Removes the visible white background */
   mix-blend-mode: multiply;
 }
+
 
 /* =========================
    NAVIGATION
@@ -57,7 +57,6 @@
 .nav-links {
   display: flex;
   align-items: center;
-
   gap: 34px;
 
   margin-left: auto;
@@ -66,7 +65,6 @@
 
 .nav-links a {
   color: #667085;
-
   font-size: 16px;
   font-weight: 500;
 
@@ -82,6 +80,7 @@
   transform: translateY(-1px);
 }
 
+
 /* =========================
    NAV ACTIONS
 ========================= */
@@ -89,11 +88,11 @@
 .nav-actions {
   display: flex;
   align-items: center;
-
   gap: 25px;
 
   flex-shrink: 0;
 }
+
 
 /* =========================
    CALL NOW
@@ -105,12 +104,10 @@
   justify-content: center;
 
   color: #151b2b;
-
   font-size: 16px;
   font-weight: 700;
 
   text-decoration: none;
-
   cursor: pointer;
 
   transition:
@@ -127,18 +124,17 @@
   transform: translateY(0);
 }
 
+
 /* =========================
    QUOTE BUTTON
 ========================= */
 
 .quote-btn {
   height: 56px;
-
   padding: 0 26px;
 
   display: inline-flex;
   align-items: center;
-
   gap: 18px;
 
   background: #151b2b;
@@ -158,7 +154,6 @@
 
 .quote-btn:hover {
   background: #2864e8;
-
   transform: translateY(-1px);
 }
 
@@ -166,6 +161,7 @@
   font-size: 22px;
   line-height: 1;
 }
+
 
 /* =========================
    TABLET
@@ -175,6 +171,17 @@
 
   .nav-container {
     width: calc(100% - 50px);
+  }
+
+  /* Elegant tablet logo */
+  .logo {
+    width: 180px;
+    height: 70px;
+  }
+
+  .logo-image {
+    width: 175px;
+    max-height: 62px;
   }
 
   .nav-links {
@@ -191,6 +198,7 @@
   }
 }
 
+
 /* =========================
    MOBILE
 ========================= */
@@ -202,33 +210,32 @@
   }
 
   .nav-container {
-    width: calc(100% - 32px);
+    width: calc(100% - 28px);
   }
 
   .nav-links {
     display: none;
   }
 
+  /* Elegant mobile logo */
   .logo {
-    width: 135px;
-    height: 55px;
+    width: 150px;
+    height: 58px;
   }
 
   .logo-image {
-    width: 130px;
+    width: 146px;
+    max-height: 52px;
   }
 
   .call-now {
     display: inline-flex;
-
     font-size: 14px;
   }
 
   .quote-btn {
     height: 46px;
-
     padding: 0 18px;
-
     font-size: 13px;
   }
 
@@ -237,37 +244,41 @@
   }
 }
 
+
 /* =========================
    SMALL MOBILE
 ========================= */
 
 @media (max-width: 480px) {
 
-  .nav-container {
-    width: calc(100% - 22px);
+  .navbar {
+    height: 70px;
   }
 
+  .nav-container {
+    width: calc(100% - 18px);
+  }
+
+  /* Compact but visible logo */
   .logo {
-    width: 110px;
-    height: 48px;
+    width: 125px;
+    height: 52px;
   }
 
   .logo-image {
-    width: 108px;
+    width: 122px;
+    max-height: 46px;
   }
 
   .call-now {
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .quote-btn {
     height: 42px;
-
-    padding: 0 14px;
-
+    padding: 0 13px;
     font-size: 11px;
-
-    gap: 8px;
+    gap: 7px;
   }
 
   .quote-btn span {
