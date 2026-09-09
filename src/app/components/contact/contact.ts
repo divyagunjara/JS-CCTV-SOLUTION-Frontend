@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import {
-  HttpClient,
-  HttpClientModule
-} from '@angular/common/http';
 
 @Component({
   selector: 'app-contact',
@@ -12,8 +8,7 @@ import {
 
   imports: [
     CommonModule,
-    FormsModule,
-    HttpClientModule
+    FormsModule
   ],
 
   templateUrl: './contact.html',
@@ -21,29 +16,28 @@ import {
 })
 export class Contact {
 
-  // =========================================
-  // API
-  // =========================================
-
-  private apiUrl =
-  'https://jscctvsolution-api-production.up.railway.app/api/Enquiries';
-
 
   // =========================================
-  // FORM VALUES
+  // GOOGLE APPS SCRIPT URL
+  // =========================================
+
+  private feedbackUrl =
+    'https://script.google.com/macros/s/AKfycbxayXw0CawWf9HJXlccTghjBeTEIl52baNh1OTlgwLb714xUVmGnKbjzav3ZeCkO8MzRQ/exec';
+
+
+  // =========================================
+  // FEEDBACK FORM VALUES
   // =========================================
 
   name = '';
 
   phone = '';
 
-  email = '';
-
-  propertyType = '';
-
   service = '';
 
-  message = '';
+  rating = 0;
+
+  feedback = '';
 
 
   // =========================================
@@ -54,141 +48,145 @@ export class Contact {
 
 
   // =========================================
-  // HTTP CLIENT
+  // STAR RATING
   // =========================================
 
-  constructor(
-    private http: HttpClient
-  ) {}
+  setRating(value: number): void {
+
+    this.rating = value;
+
+  }
 
 
   // =========================================
-  // SUBMIT ENQUIRY
+  // SUBMIT FEEDBACK
   // =========================================
 
-  submitEnquiry(): void {
+  async submitFeedback(): Promise<void> {
 
-    // Prevent multiple clicks
+
+    // Prevent multiple submissions
+
     if (this.isSubmitting) {
       return;
     }
 
 
-    // Check required fields
+    // =========================================
+    // VALIDATION
+    // =========================================
+
     if (
       !this.name.trim() ||
       !this.phone.trim() ||
-      !this.email.trim() ||
-      !this.propertyType ||
       !this.service ||
-      !this.message.trim()
+      this.rating === 0 ||
+      !this.feedback.trim()
     ) {
 
       alert(
-        'Please fill in all the details before submitting.'
+        'Please fill in all the details and select a rating.'
       );
 
       return;
     }
 
 
-    // Start loading
+    // =========================================
+    // START LOADING
+    // =========================================
+
     this.isSubmitting = true;
 
 
     // =========================================
-    // DATA SENT TO API
+    // DATA FOR GOOGLE SHEET
     // =========================================
 
-    const enquiry = {
+    const feedbackData = {
 
-      id: 0,
+      date: new Date().toISOString(),
 
       name: this.name.trim(),
 
       phone: this.phone.trim(),
 
-      email: this.email.trim(),
-
-      propertyType: this.propertyType,
-
       service: this.service,
 
-      message: this.message.trim(),
+      rating: this.rating,
 
-      status: 'New',
-
-      createdAt: new Date().toISOString()
+      feedback: this.feedback.trim()
 
     };
 
 
     console.log(
-      'Sending enquiry:',
-      enquiry
+      'Sending customer feedback:',
+      feedbackData
     );
 
 
     // =========================================
-    // POST TO API
+    // SEND TO GOOGLE APPS SCRIPT
     // =========================================
 
-    this.http
-      .post(
-        this.apiUrl,
-        enquiry
-      )
-      .subscribe({
+    try {
 
-        // =====================================
-        // SUCCESS
-        // =====================================
+      await fetch(
+        this.feedbackUrl,
+        {
+          method: 'POST',
 
-        next: (response) => {
+          mode: 'no-cors',
 
-          console.log(
-            'Enquiry saved successfully:',
-            response
-          );
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8'
+          },
 
-
-          alert(
-            'Thank you! Your enquiry has been submitted successfully.'
-          );
-
-
-          // Clear form
-          this.clearForm();
-
-
-          // Stop loading
-          this.isSubmitting = false;
-
-        },
-
-
-        // =====================================
-        // ERROR
-        // =====================================
-
-        error: (error) => {
-
-          console.error(
-            'Enquiry submission failed:',
-            error
-          );
-
-
-          alert(
-            'Unable to submit your enquiry. Please try again or call us directly.'
-          );
-
-
-          this.isSubmitting = false;
-
+          body: JSON.stringify(feedbackData)
         }
+      );
 
-      });
+
+      // =======================================
+      // SUCCESS
+      // =======================================
+
+      alert(
+        'Thank you! Your feedback has been submitted successfully.'
+      );
+
+
+      // Clear form
+
+      this.clearFeedbackForm();
+
+
+    } catch (error) {
+
+
+      // =======================================
+      // ERROR
+      // =======================================
+
+      console.error(
+        'Feedback submission failed:',
+        error
+      );
+
+
+      alert(
+        'Unable to submit your feedback. Please try again.'
+      );
+
+    }
+
+
+    // =========================================
+    // STOP LOADING
+    // =========================================
+
+    this.isSubmitting = false;
 
   }
 
@@ -197,19 +195,17 @@ export class Contact {
   // CLEAR FORM
   // =========================================
 
-  private clearForm(): void {
+  private clearFeedbackForm(): void {
 
     this.name = '';
 
     this.phone = '';
 
-    this.email = '';
-
-    this.propertyType = '';
-
     this.service = '';
 
-    this.message = '';
+    this.rating = 0;
+
+    this.feedback = '';
 
   }
 

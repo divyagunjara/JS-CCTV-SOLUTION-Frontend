@@ -2,6 +2,10 @@
 
   <div class="contact-container">
 
+    <!-- =========================================
+         LEFT SIDE
+    ========================================== -->
+
     <div class="contact-left">
 
       <div class="eyebrow">
@@ -20,43 +24,79 @@
         recommend the right solution and arrange a site visit if required.
       </p>
 
+
+      <!-- =========================================
+           CONTACT DETAILS
+      ========================================== -->
+
       <div class="contact-details">
 
         <!-- CALL -->
-        <a href="tel:+919019954780" class="contact-detail">
-          <div class="detail-icon">☎</div>
+
+        <a
+          href="tel:+919019954780"
+          class="contact-detail"
+        >
+
+          <div class="detail-icon">
+            ☎
+          </div>
 
           <div>
+
             <span>CALL US</span>
-            <strong>9019954780</strong>
+
+            <strong>
+              9019954780
+            </strong>
+
           </div>
+
         </a>
 
 
         <!-- WHATSAPP -->
+
         <a
           href="https://wa.me/919019954780"
           target="_blank"
           rel="noopener"
           class="contact-detail"
         >
-          <div class="detail-icon">◉</div>
+
+          <div class="detail-icon">
+            ◉
+          </div>
 
           <div>
+
             <span>WHATSAPP</span>
-            <strong>Chat with us</strong>
+
+            <strong>
+              Chat with us
+            </strong>
+
           </div>
+
         </a>
 
 
         <!-- SERVICE AREA -->
+
         <div class="contact-detail">
 
-          <div class="detail-icon">⌖</div>
+          <div class="detail-icon">
+            ⌖
+          </div>
 
           <div>
+
             <span>SERVICE AREA</span>
-            <strong>Bangalore &amp; surrounding areas</strong>
+
+            <strong>
+              Bangalore &amp; surrounding areas
+            </strong>
+
           </div>
 
         </div>
@@ -66,31 +106,39 @@
     </div>
 
 
-    <!-- =========================
-         CONTACT FORM
-    ========================== -->
+    <!-- =========================================
+         CUSTOMER FEEDBACK
+    ========================================== -->
 
-    <div class="contact-form-card">
+    <div class="contact-form-card feedback-form-card">
 
       <div class="form-heading">
 
-        <span>FREE CONSULTATION</span>
+        <span>
+          CUSTOMER FEEDBACK
+        </span>
 
-        <h3>Request a quote.</h3>
+        <h3>
+          We value your feedback.
+        </h3>
 
         <p>
-          Fill in your details and we'll get back to you.
+          Tell us about your experience with
+          JS CCTV Solution.
         </p>
 
       </div>
 
 
-      <!-- FORM -->
+      <!-- =========================================
+           FEEDBACK FORM
+      ========================================== -->
 
       <form
-        (ngSubmit)="submitEnquiry()"
-        #enquiryForm="ngForm"
+        (ngSubmit)="submitFeedback()"
+        #feedbackForm="ngForm"
       >
+
 
         <!-- NAME + PHONE -->
 
@@ -98,13 +146,13 @@
 
           <div class="form-group">
 
-            <label for="name">
+            <label for="feedbackName">
               YOUR NAME
             </label>
 
             <input
-              id="name"
-              name="name"
+              id="feedbackName"
+              name="feedbackName"
               type="text"
               placeholder="Enter your name"
               [(ngModel)]="name"
@@ -116,13 +164,13 @@
 
           <div class="form-group">
 
-            <label for="phone">
+            <label for="feedbackPhone">
               PHONE NUMBER
             </label>
 
             <input
-              id="phone"
-              name="phone"
+              id="feedbackPhone"
+              name="feedbackPhone"
               type="tel"
               placeholder="Enter your phone number"
               [(ngModel)]="phone"
@@ -134,81 +182,17 @@
         </div>
 
 
-        <!-- EMAIL -->
-
-        <div class="form-group">
-
-          <label for="email">
-            EMAIL ADDRESS
-          </label>
-
-          <input
-            id="email"
-            name="email"
-            type="email"
-            placeholder="Enter your email"
-            [(ngModel)]="email"
-            required
-          />
-
-        </div>
-
-
-        <!-- PROPERTY TYPE -->
-
-        <div class="form-group">
-
-          <label for="propertyType">
-            PROPERTY TYPE
-          </label>
-
-          <select
-            id="propertyType"
-            name="propertyType"
-            [(ngModel)]="propertyType"
-            required
-          >
-
-            <option value="">
-              Select property type
-            </option>
-
-            <option value="Residential">
-              Residential
-            </option>
-
-            <option value="Commercial">
-              Commercial
-            </option>
-
-            <option value="Office">
-              Office
-            </option>
-
-            <option value="Shop">
-              Shop
-            </option>
-
-            <option value="Other">
-              Other
-            </option>
-
-          </select>
-
-        </div>
-
-
         <!-- SERVICE -->
 
         <div class="form-group">
 
-          <label for="service">
-            WHAT DO YOU NEED?
+          <label for="feedbackService">
+            SERVICE RECEIVED
           </label>
 
           <select
-            id="service"
-            name="service"
+            id="feedbackService"
+            name="feedbackService"
             [(ngModel)]="service"
             required
           >
@@ -237,12 +221,16 @@
               Networking &amp; Cabling
             </option>
 
-            <option value="DVR / NVR Service">
-              DVR / NVR Service
+            <option value="DVR / NVR Solutions">
+              DVR / NVR Solutions
             </option>
 
             <option value="Remote Monitoring">
               Remote Monitoring
+            </option>
+
+            <option value="Industrial Security">
+              Industrial Security
             </option>
 
           </select>
@@ -250,35 +238,119 @@
         </div>
 
 
-        <!-- MESSAGE -->
+        <!-- =========================================
+             STAR RATING
+        ========================================== -->
 
         <div class="form-group">
 
-          <label for="message">
-            MESSAGE
+          <label>
+            YOUR RATING
+          </label>
+
+          <div
+            class="rating"
+            role="radiogroup"
+            aria-label="Customer rating"
+          >
+
+            <!-- 1 STAR -->
+
+            <button
+              type="button"
+              aria-label="1 star"
+              [class.active]="rating >= 1"
+              (click)="setRating(1)"
+            >
+              ★
+            </button>
+
+
+            <!-- 2 STARS -->
+
+            <button
+              type="button"
+              aria-label="2 stars"
+              [class.active]="rating >= 2"
+              (click)="setRating(2)"
+            >
+              ★
+            </button>
+
+
+            <!-- 3 STARS -->
+
+            <button
+              type="button"
+              aria-label="3 stars"
+              [class.active]="rating >= 3"
+              (click)="setRating(3)"
+            >
+              ★
+            </button>
+
+
+            <!-- 4 STARS -->
+
+            <button
+              type="button"
+              aria-label="4 stars"
+              [class.active]="rating >= 4"
+              (click)="setRating(4)"
+            >
+              ★
+            </button>
+
+
+            <!-- 5 STARS -->
+
+            <button
+              type="button"
+              aria-label="5 stars"
+              [class.active]="rating >= 5"
+              (click)="setRating(5)"
+            >
+              ★
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- =========================================
+             FEEDBACK MESSAGE
+        ========================================== -->
+
+        <div class="form-group">
+
+          <label for="feedbackMessage">
+            YOUR FEEDBACK
           </label>
 
           <textarea
-            id="message"
-            name="message"
+            id="feedbackMessage"
+            name="feedbackMessage"
             rows="4"
-            placeholder="Tell us about your requirement..."
-            [(ngModel)]="message"
+            placeholder="Tell us about your experience..."
+            [(ngModel)]="feedback"
             required
           ></textarea>
 
         </div>
 
 
-        <!-- SUBMIT BUTTON -->
+        <!-- =========================================
+             SUBMIT BUTTON
+        ========================================== -->
 
         <button
           type="submit"
-          class="submit-button"
+          class="submit-button feedback-submit-button"
           [disabled]="isSubmitting"
         >
 
-          {{ isSubmitting ? 'Sending...' : 'Send Enquiry' }}
+          {{ isSubmitting ? 'Submitting...' : 'Submit Feedback' }}
 
           <span *ngIf="!isSubmitting">
             →
@@ -287,10 +359,14 @@
         </button>
 
 
-        <!-- FORM NOTE -->
+        <!-- =========================================
+             NOTE
+        ========================================== -->
 
         <small class="form-note">
-          We'll never share your information with third parties.
+
+          Thank you for helping us improve our service.
+
         </small>
 
       </form>
